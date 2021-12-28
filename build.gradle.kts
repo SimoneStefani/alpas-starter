@@ -18,23 +18,22 @@ application {
 }
 
 repositories {
-    jcenter()
     maven("https://jitpack.io")
     mavenCentral()
 }
 
 dependencies {
     val kotlin_version = "1.6.10"
-    val alpas_version = "83ac507ca1"
+    val alpas_version = "2327b7fbf2"
 
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
+    implementation(kotlin("reflect", version = kotlin_version))
     implementation("com.github.SimoneStefani.alpas:alpas:$alpas_version")
     implementation("ch.qos.logback:logback-classic:1.3.0-alpha12")
-    implementation("mysql:mysql-connector-java:8.0.19")
-    implementation(kotlin("reflect", version = kotlin_version))
+    implementation("mysql:mysql-connector-java:8.0.27")
 
     testImplementation("com.github.SimoneStefani.alpas:pulsar:$alpas_version")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }
 
 tasks.withType<KotlinCompile> {
